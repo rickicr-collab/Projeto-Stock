@@ -9,7 +9,9 @@
      <project.reporting.outputEncodind>UTF-8</project.reporting.outputEncodind>
      <failOnMissingWebXml>false</failOnMissingWebXml>
      <java.version>1.8</java.version> 
-     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version> 
+     <maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
+     <spring-framework.version>4.3.0.RELEASE</spring-framework.version>
+     <servlet.version>3.1.0</servlet.version> 
   </properties>
   
   <build>
@@ -24,4 +26,30 @@
      </plugin>
   </plugins>
   </build>
+  
+  <dependencyManagement>
+     <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>${spring-framework.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+     </dependencies>
+  </dependencyManagement>
+  
+  <dependencies>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>${servlet.version}</version>
+    	<scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
 </project>
